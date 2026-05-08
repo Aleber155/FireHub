@@ -1,0 +1,10 @@
+/vendor
+/node_modules
+.env
+/dist
+/build
+.cache
+npm-debug.log
+yarn-error.log
+.DS_Store
+Thumbs.db

@@ -1,0 +1,24 @@
+{
+    "name": "aleber/firehub",
+    "description": "Sistema de gestion integral para compañía de bomberos",
+    "type": "project",
+    "license": "proprietary",
+    "autoload": {
+        "psr-4": {
+            "Aleber\\FireHub\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "aleber",
+            "email": "alex.bernabe.g@outlook.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpoffice/phpspreadsheet": "^5.7",
+        "dompdf/dompdf": "^3.1",
+        "monolog/monolog": "^3.10",
+        "ramsey/uuid": "^4.9"
+    }
+}

@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+@plugin 'flowbite/plugin';
+
+@theme {
+    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    --color-primary: #b91c1c;
+    --color-primary-dark: #991b1b;
+    --color-secondary: #1f2937;
+    --color-success: #16a34a;
+    --color-warning: #f59e0b;
+    --color-danger: #dc2626;
+    --color-info: #2563eb;
+
+    --radius-default: 0.75rem;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-sans);
+        background-color: #f9fafb;
+        color: #111827;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: 700;
+        color: #111827;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply rounded-xl bg-red-700 px-5 py-2.5 font-medium text-white transition hover:bg-red-800;
+    }
+
+    .btn-secondary {
+        @apply rounded-xl bg-gray-800 px-5 py-2.5 font-medium text-white transition hover:bg-gray-900;
+    }
+
+    .card {
+        @apply rounded-2xl bg-white p-6 shadow-md;
+    }
+
+    .input {
+        @apply w-full rounded-xl border border-gray-300 px-4 py-2 focus:border-red-600 focus:ring-red-600;
+    }
+
+    .table-container {
+        @apply overflow-x-auto rounded-2xl bg-white shadow-md;
+    }
+}
+
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+}

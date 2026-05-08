@@ -1,0 +1,30 @@
+{
+    "name": "firehub",
+    "version": "1.0.0",
+    "description": "Sistema de gestion integral para compañía de bomberos",
+    "license": "ISC",
+    "author": "Alex Bernabe",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "npx @tailwindcss/cli -i ./public/assets/css/input.css -o ./public/assets/css/style.css --watch",
+        "build": "npx @tailwindcss/cli -i ./public/assets/css/input.css -o ./public/assets/css/style.css --minify",
+        "format": "npx prettier --write ."
+    },
+    "dependencies": {
+        "@tailwindcss/cli": "^4.2.0",
+        "alpinejs": "^3.15.12",
+        "chart.js": "^4.5.1",
+        "datatables.net": "^2.3.1",
+        "datatables.net-dt": "^2.3.1",
+        "flowbite": "^4.0.1",
+        "gridjs": "^6.2.0",
+        "sweetalert2": "^11.26.24",
+        "tailwindcss": "^4.2.0",
+        "tom-select": "^2.6.0"
+    },
+    "devDependencies": {
+        "prettier": "^3.8.1",
+        "prettier-plugin-tailwindcss": "^0.7.2"
+    }
+}
