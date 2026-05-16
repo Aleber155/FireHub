@@ -51,41 +51,42 @@
                         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">
                             Contacto
                         </h4>
-
                         <ul class="space-y-4 text-sm text-slate-300">
-                            
-                            <!-- Dirección -->
-                            <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg mt-0.5">
-                                    location_on
-                                </span>
-                                <span class="leading-relaxed">
-                                    Av. Atocongo s/n<br>
-                                    Frente a Cementos Lima
-                                </span>
+                            <li>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Compañía+de+Bomberos+Nuevo+Milenio+N°+155,+Q3XR+5MG,+Av.+Lima,+Villa+María+del+Triunfo,+Perú" target="_blank" rel="noopener noreferrer" class="group flex items-start gap-3 hover:text-white hover:translate-x-1 transition-all duration-300">
+                                    <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300 text-lg mt-0.5">
+                                        location_on
+                                    </span>
+                                    <span class="leading-relaxed mt-0.5">
+                                        Av. Atocongo s/n<br>
+                                        Frente a Cementos Lima
+                                    </span>
+                                </a>
                             </li>
-
-                            <!-- Teléfono -->
-                            <li class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg">
-                                    phone
-                                </span>
-                                <span>(01) 293-6643</span>
+                            <li>
+                                <a href="tel:+51012936643" class="group flex items-center gap-3 hover:text-white hover:translate-x-1 transition-all duration-300">
+                                    <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300 text-lg">
+                                        phone
+                                    </span>
+                                    <span>
+                                        (01) 293-6643
+                                    </span>
+                                </a>
                             </li>
-
-                            <!-- Correo -->
-                            <li class="flex items-center gap-3">
-                                <span class="material-symbols-outlined text-primary text-lg">
-                                    mail
-                                </span>
-                                <span>contacto@bomberos155.pe</span>
+                            <li>
+                                <a href="mailto:contacto@bomberos155.pe" class="group flex items-center gap-3 hover:text-white hover:translate-x-1 transition-all duration-300">
+                                    <span class="material-symbols-outlined text-primary group-hover:text-white transition-colors duration-300 text-lg">
+                                        mail
+                                    </span>
+                                    <span>
+                                        contacto@bomberos155.pe
+                                    </span>
+                                </a>
                             </li>
-
                         </ul>
 
                         <!-- Redes sociales -->
                         <div class="flex gap-4 mt-6">
-                            
                             <!-- Instagram -->
                             <a 
                                 href="https://www.instagram.com/b155nuevomilenio/"
@@ -94,7 +95,6 @@
                             >
                                 <i class="fa-brands fa-instagram text-lg"></i>
                             </a>
-
                             <!-- Facebook -->
                             <a 
                                 href="https://www.facebook.com/B155NuevoMilenio"
@@ -103,7 +103,6 @@
                             >
                                 <i class="fa-brands fa-facebook-f text-lg"></i>
                             </a>
-
                             <!-- TikTok -->
                             <a 
                                 href="https://www.tiktok.com/@b155nuevomilenio"
@@ -112,7 +111,6 @@
                             >
                                 <i class="fa-brands fa-tiktok text-lg"></i>
                             </a>
-
                             <!-- YouTube -->
                             <a 
                                 href="https://www.youtube.com/"
@@ -121,7 +119,6 @@
                             >
                                 <i class="fa-brands fa-youtube text-lg"></i>
                             </a>
-
                         </div>
                     </div>
                     <!-- Columna 4 -->
@@ -129,7 +126,6 @@
                         <h4 class="text-white font-bold mb-6 uppercase tracking-wider text-sm">
                             Ubicación
                         </h4>
-
                         <a 
                             href="https://www.google.com/maps/search/?api=1&query=Compañía+de+Bomberos+Nuevo+Milenio+N°+155,+Q3XR+5MG,+Av.+Lima,+Villa+María+del+Triunfo,+Perú"
                             target="_blank"
@@ -141,11 +137,9 @@
                                 loading="lazy"
                             ></iframe>
                         </a>
-
                         <p class="text-xs text-slate-500 mt-3">
                             Av. Lima, Villa María del Triunfo 15822, Perú
                         </p>
-
                         <div class="mt-3">
                             <a 
                                 href="https://www.google.com/maps/search/?api=1&query=Compañía+de+Bomberos+Nuevo+Milenio+N°+155,+Q3XR+5MG,+Av.+Lima,+Villa+María+del+Triunfo,+Perú"
@@ -164,7 +158,6 @@
                         © <?= date('Y') ?> Compañía de Bomberos Nuevo Milenio B-155.
                         Todos los derechos reservados.
                     </p>
-
                     <div class="flex gap-6">
                         <a href="#" class="hover:text-white transition-colors">Políticas de Privacidad</a>
                         <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>

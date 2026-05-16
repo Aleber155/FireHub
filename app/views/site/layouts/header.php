@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
 <header class="fixed top-0 left-0 w-full z-50 pt-4 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto flex flex-col gap-2">
         
-        <nav class="bg-black/60 backdrop-blur-2xl border border-white/10 shadow-lg shadow-black/20 rounded-full transition-all duration-300">
+        <nav class="bg-black/60 backdrop-blur-2xl border border-white/20 shadow-lg shadow-black/20 rounded-full transition-all duration-300">
             <div class="flex items-center justify-between px-3 py-3">
                 
                 <a href="<?= BASE_URL ?>?url=home" class="flex items-center space-x-3 rtl:space-x-reverse transition-opacity hover:opacity-80 shrink-0">
@@ -59,19 +59,25 @@
                     </div>
 
                     <div class="relative group">
-                        <button class="flex items-center gap-1.5 px-4 py-2 rounded-full transition-colors <?= in_array($current, ['emergencies','training']) ? 'text-primary font-semibold' : 'hover:text-white hover:bg-primary/50' ?>">
+                        <button class="flex items-center gap-1.5 px-4 py-2 rounded-full transition-colors <?= in_array($current, ['emergency','training']) ? 'text-primary font-semibold' : 'hover:text-white hover:bg-primary/50' ?>">
                             Servicios <svg class="w-2.5 h-2.5 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 10 6"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/></svg>
                         </button>
                         <div class="absolute top-full left-0 mt-1 w-52 bg-black/60 backdrop-blur-3xl border border-white/10 rounded-2xl opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 invisible group-hover:visible transition-all duration-200 z-10 overflow-hidden shadow-xl shadow-black/30">
                             <div class="p-1.5 flex flex-col">
-                                <a href="<?= BASE_URL ?>?url=emergencies" class="px-4 py-2.5 rounded-xl text-slate-200 hover:bg-primary/50 hover:text-white transition-colors">Emergencias</a>
+                                <a href="<?= BASE_URL ?>?url=emergency" class="px-4 py-2.5 rounded-xl text-slate-200 hover:bg-primary/50 hover:text-white transition-colors">Emergencias</a>
                                 <a href="<?= BASE_URL ?>?url=training" class="px-4 py-2.5 rounded-xl text-slate-200 hover:bg-primary/50 hover:text-white transition-colors">Capacitaciones</a>
                             </div>
                         </div>
                     </div>
+                    
+                    <a href="<?= BASE_URL ?>?url=postulation" class="hidden lg:block px-4 py-2 rounded-full transition-colors <?= $current === 'postulation' ? 'bg-primary text-white font-bold shadow-md shadow-primary/30' : 'text-white hover:bg-white/10' ?>">
+                        Postulación
+                    </a>
 
-                    <a href="<?= BASE_URL ?>?url=postulation" class="px-4 py-2 rounded-full transition-colors <?= $current === 'postulation' ? 'text-primary font-semibold' : 'hover:text-white hover:bg-primary/50' ?>">Postulación</a>
-                    <a href="<?= BASE_URL ?>?url=contact" class="px-4 py-2 rounded-full transition-colors <?= $current === 'contact' ? 'text-primary font-semibold' : 'hover:text-white hover:bg-primary/50' ?>">Contacto</a>
+                    <a href="<?= BASE_URL ?>?url=contact" class="hidden lg:block px-4 py-2 rounded-full transition-colors <?= $current === 'contact' ? 'bg-primary text-white font-bold shadow-md shadow-primary/30' : 'text-white hover:bg-white/10' ?>">
+                        Contacto
+                    </a>
+                    
                 </div>
 
                 <div class="flex items-center space-x-1 shrink-0">
@@ -94,43 +100,38 @@
         </nav>
 
         <div class="hidden w-full md:hidden transition-all duration-300" id="navbar-main">
-            <div class="flex flex-col p-4 bg-black/40 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-2xl shadow-black/50 space-y-2 mt-2">
-                
-                <a href="<?= BASE_URL ?>?url=home" class="block px-4 py-3 rounded-xl text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'home' ? 'bg-primary/50 font-semibold text-primary' : '' ?>">
+            <div class="flex flex-col p-4 bg-black/60 backdrop-blur-3xl border border-white/20 rounded-3xl shadow-2xl shadow-black/50 space-y-2 mt-2">
+                <a href="<?= BASE_URL ?>?url=home" class="block px-4 py-3 rounded-xl text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'home' ? 'bg-primary/70 font-semibold' : 'bg-white/5' ?>">
                     Inicio
                 </a>
-                
                 <div class="px-4 py-3 bg-white/5 rounded-2xl border border-white/5">
                     <span class="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-3 block">Nosotros</span>
                     <div class="flex flex-col space-y-1 ml-2 border-l border-white/10 pl-2">
-                        <a href="<?= BASE_URL ?>?url=history" class="block px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-primary/50 hover:text-white transition-colors <?= $current === 'history' ? 'text-primary font-bold' : '' ?>">
+                        <a href="<?= BASE_URL ?>?url=history" class="block px-3 py-2 rounded-lg text-sm hover:bg-primary/50 hover:text-white transition-all duration-300 <?= $current === 'history' ? 'bg-primary/70 font-semibold text-white' : 'text-slate-300' ?>">
                             Nuestra Historia
                         </a>
-                        <a href="<?= BASE_URL ?>?url=organic" class="block px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-primary/50 hover:text-white transition-colors <?= $current === 'organic' ? 'text-primary font-bold' : '' ?>">
+                        <a href="<?= BASE_URL ?>?url=organic" class="block px-3 py-2 rounded-lg text-sm hover:bg-primary/50 hover:text-white transition-all duration-300 <?= $current === 'organic' ? 'bg-primary/70 font-semibold text-white' : 'text-slate-300' ?>">
                             Cuadro Orgánico
                         </a>
                     </div>
                 </div>
-
                 <div class="px-4 py-3 bg-white/5 rounded-2xl border border-white/5">
                     <span class="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-3 block">Servicios</span>
                     <div class="flex flex-col space-y-1 ml-2 border-l border-white/10 pl-2">
-                        <a href="<?= BASE_URL ?>?url=emergencies" class="block px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-primary/50 hover:text-white transition-colors <?= $current === 'emergencies' ? 'text-primary font-bold' : '' ?>">
+                        <a href="<?= BASE_URL ?>?url=emergency" class="block px-3 py-2 rounded-lg text-sm hover:bg-primary/50 hover:text-white transition-all duration-300 <?= $current === 'emergency' ? 'bg-primary/70 font-semibold text-white' : 'text-slate-300' ?>">
                             Emergencias
                         </a>
-                        <a href="<?= BASE_URL ?>?url=training" class="block px-3 py-2 rounded-lg text-sm text-slate-300 hover:bg-primary/50 hover:text-white transition-colors <?= $current === 'training' ? 'text-primary font-bold' : '' ?>">
+                        <a href="<?= BASE_URL ?>?url=training" class="block px-3 py-2 rounded-lg text-sm hover:bg-primary/50 hover:text-white transition-all duration-300 <?= $current === 'training' ? 'bg-primary/70 font-semibold text-white' : 'text-slate-300' ?>">
                             Capacitaciones
                         </a>
                     </div>
                 </div>
-
-                <a href="<?= BASE_URL ?>?url=postulation" class="block px-4 py-3 rounded-xl bg-white/5 text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'postulation' ? 'bg-white/10 font-semibold text-primary' : '' ?>">
+                <a href="<?= BASE_URL ?>?url=postulation" class="block px-4 py-3 rounded-xl text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'postulation' ? 'bg-primary/70 font-semibold' : 'bg-white/5' ?>">
                     Postulación
                 </a>
-                <a href="<?= BASE_URL ?>?url=contact" class="block px-4 py-3 rounded-xl bg-white/5 text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'contact' ? 'bg-white/10 font-semibold text-primary' : '' ?>">
+                <a href="<?= BASE_URL ?>?url=contact" class="block px-4 py-3 rounded-xl text-white hover:bg-primary/50 transition-all duration-300 <?= $current === 'contact' ? 'bg-primary/70 font-semibold' : 'bg-white/5' ?>">
                     Contacto
                 </a>
-                
             </div>
         </div>
     </div>

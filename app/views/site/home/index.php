@@ -1,18 +1,27 @@
-<section id="inicio" class="w-full flex flex-col">
-    
-    <div class="relative w-full min-h-[60vh] flex items-center overflow-hidden py-20">
-        <div class="absolute inset-0 bg-cover bg-center"
+<!-- BANNER -->
+<section id="inicio" class="w-full min-h-screen flex flex-col">
+    <div class="relative w-full flex-1 min-h-screen flex items-center overflow-hidden py-20">
+        
+        <div class="absolute inset-0 bg-cover bg-center md:hidden"
+            style="background-image: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.75)), url('<?= BASE_URL ?>public/assets/img/HERO-MOVIL.png');">
+        </div>
+
+        <div class="absolute inset-0 bg-cover bg-center hidden md:block"
             style="background-image: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.75)), url('<?= BASE_URL ?>public/assets/img/HERO.png');">
         </div>
         
-        <div class="relative w-full max-w-7xl mx-auto px-6 text-white">
+        <div class="absolute bottom-0 left-0 w-full h-40 bg-linear-to-t from-background to-transparent pointer-events-none z-0"></div>
+        
+        <div class="relative w-full max-w-7xl mx-auto px-6 text-white z-10">
             <div class="max-w-2xl">
                 <span class="inline-block bg-red-700 px-4 py-1.5 text-xs font-bold tracking-widest uppercase mb-6 rounded shadow-lg shadow-red-700/30">
                     Compañía de Bomberos
                 </span>
+                
                 <h2 class="text-5xl md:text-6xl font-black leading-tight mb-6">
                     Comprometidos con la vida, el servicio y la comunidad
                 </h2>
+                
                 <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
                     Valor, disciplina y sacrificio al servicio de nuestra comunidad las 24 horas del día.
                 </p>
@@ -26,6 +35,7 @@
                             info
                         </span>
                     </a>
+                    
                     <a href="<?= BASE_URL ?>?url=postulation" class="group relative inline-flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl shadow-lg transition-all duration-300 transform hover:-translate-y-1 shrink-0">
                         <span class="transition-all duration-300 group-hover:-translate-x-2">
                             Postular Ahora
@@ -37,10 +47,30 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="w-full py-24 px-6 bg-background">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        <a href="#nosotros" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center group cursor-pointer z-10">
+            <span class="text-white/60 text-xs font-semibold tracking-[0.2em] uppercase mb-3 group-hover:text-white transition-colors duration-300">
+                Descubre
+            </span>
+            
+            <div class="hidden md:flex w-8 h-13 border-2 border-white/40 group-hover:border-white/80 rounded-full justify-center p-1 transition-colors duration-300">
+                <div class="w-1.5 h-3 bg-white rounded-full animate-bounce mt-1"></div>
+            </div>
+
+            <div class="flex md:hidden flex-col items-center text-white/70 group-hover:text-white transition-colors duration-300">
+                <span class="material-symbols-outlined text-4xl animate-bounce">
+                    keyboard_double_arrow_down
+                </span>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros" class="w-full flex flex-col min-h-screen md:min-h-0">
+    <div class="w-full flex-1 flex items-center py-24 px-6 bg-background">
+        <div class="w-full max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
             
             <div>
                 <h2 class="text-3xl text-white md:text-4xl font-bold mb-6">
@@ -84,101 +114,6 @@
                     <h3 class="text-white font-bold text-lg md:text-xl tracking-wide">Capacitación</h3>
                 </div>
 
-            </div>
-        </div>
-    </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- BANNER -->
-<section class="relative h-[60vh] flex items-center overflow-hidden" id="inicio">
-    <!-- Fondo -->
-    <div class="absolute inset-0 bg-cover bg-center"
-        style="background-image: linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.75)), url('<?= BASE_URL ?>public/assets/img/HERO.png');">
-    </div>
-    <div class="relative max-w-7xl mx-auto px-6 text-white">
-        <div class="max-w-2xl">
-            <span class="inline-block bg-red-700 px-4 py-1 text-xs font-bold tracking-widest uppercase mb-6 rounded">
-                Compañía de Bomberos
-            </span>
-            <h2 class="text-5xl md:text-5xl font-black leading-tight mb-6">
-                Comprometidos con la vida, el servicio y la comunidad
-            </h2>
-            <p class="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
-                Valor, disciplina y sacrificio al servicio de nuestra comunidad las 24 horas del día.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="<?= BASE_URL ?>?url=history" class="group relative inline-flex items-center justify-center overflow-hidden bg-red-700 hover:bg-red-700/90 text-white font-bold px-10 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 shrink-0">
-                    <span class="transition-all duration-400 group-hover:-translate-x-3">
-                        Conoce Más
-                    </span>
-                    <span class="material-symbols-outlined absolute right-0 translate-x-12 opacity-0 transition-all duration-400 group-hover:-translate-x-6 group-hover:opacity-100">
-                        info
-                    </span>
-                </a>
-                <a href="<?= BASE_URL ?>?url=postulation" class="group relative inline-flex items-center justify-center overflow-hidden bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white font-semibold px-10 py-3 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 shrink-0">
-                    <span class="transition-all duration-400 group-hover:-translate-x-3">
-                        Postular Ahora
-                    </span>
-                    <span class="material-symbols-outlined absolute right-0 translate-x-12 opacity-0 transition-all duration-400 group-hover:-translate-x-6 group-hover:opacity-100">
-                        chat_paste_go
-                    </span>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- NOSOTROS -->
-<section class="py-20 px-6 bg-background">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        <div>
-            <h2 class="text-3xl text-white md:text-4xl font-bold mb-6">
-                Nuestra Misión
-            </h2>
-            <p class="text-xl text-slate-400 leading-relaxed mb-4">
-                Brindar atención oportuna y eficiente ante emergencias,
-                trabajando con profesionalismo y compromiso para salvaguardar
-                vidas y bienes.
-            </p>
-            <p class="text-xl text-slate-400 leading-relaxed">
-                Somos una compañía formada por voluntarios preparados,
-                dedicados al servicio y al crecimiento continuo.
-            </p>
-        </div>
-        <div class="grid grid-cols-2 gap-6">
-            <div class="bg-stone-900 p-6 rounded-xl text-center">
-                <span class="material-symbols-outlined text-red-700 text-4xl mb-3">local_fire_department</span>
-                <h3 class="text-white font-semibold">Incendio</h3>
-            </div>
-            <div class="bg-stone-900 p-6 rounded-xl text-center">
-                <span class="material-symbols-outlined text-red-700 text-4xl mb-3">medical_services</span>
-                <h3 class="text-white font-semibold">Rescate</h3>
-            </div>
-            <div class="bg-stone-900 p-6 rounded-xl text-center">
-                <span class="material-symbols-outlined text-red-700 text-4xl mb-3">diversity_3</span>
-                <h3 class="text-white font-semibold">Comunidad</h3>
-            </div>
-            <div class="bg-stone-900 p-6 rounded-xl text-center">
-                <span class="material-symbols-outlined text-red-700 text-4xl mb-3">school</span>
-                <h3 class="text-white font-semibold">Capacitación</h3>
             </div>
         </div>
     </div>
@@ -306,7 +241,7 @@
 
                 <div class="space-y-4">
 
-                    <a href="<?= BASE_URL ?>public/assets/pdf/uso-de-extintores.pdf" download="Manual de Uso de Extintores.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-red-700 hover:text-white hover:shadow-md transition-all duration-300 group">
+                    <a href="<?= BASE_URL ?>public/assets/pdf/uso-de-extintores.pdf" download="Manual de Uso de Extintores.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300 group">
                         <span class="font-semibold">
                             Manual de Uso de Extintores
                         </span>
@@ -315,7 +250,7 @@
                         </span>
                     </a>
 
-                    <a href="<?= BASE_URL ?>public/assets/pdf/plan-de-evacuacion.pdf" download="Plan de Evacuación Familiar.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-red-700 hover:text-white hover:shadow-md transition-all duration-300 group">
+                    <a href="<?= BASE_URL ?>public/assets/pdf/plan-de-evacuacion.pdf" download="Plan de Evacuación Familiar.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300 group">
                         <span class="font-semibold">
                             Plan de Evacuación Familiar
                         </span>
@@ -324,7 +259,7 @@
                         </span>
                     </a>
 
-                    <a href="<?= BASE_URL ?>public/assets/pdf/primeros-auxilios.pdf" download="Guía de Primeros Auxilios.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-red-700 hover:text-white hover:shadow-md transition-all duration-300 group">
+                    <a href="<?= BASE_URL ?>public/assets/pdf/primeros-auxilios.pdf" download="Guía de Primeros Auxilios.pdf" class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200 hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300 group">
                         <span class="font-semibold">
                             Guía de Primeros Auxilios
                         </span>
@@ -347,32 +282,32 @@
                 </p>
                 <!-- Números de emergencia -->
                 <div class="flex flex-wrap justify-center items-center gap-12 text-center">
-                    <div class="flex flex-col items-center">
-                        <p class="text-6xl md:text-7xl font-black text-red-700 leading-none">
+                    <a href="tel:116" class="flex flex-col items-center group transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer">
+                        <p class="text-6xl md:text-7xl font-black text-primary leading-none group-hover:text-red-600 transition-colors">
                             116
                         </p>
-                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest">
+                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest group-hover:text-red-700 transition-colors">
                             Bomberos
                         </p>
-                    </div>
+                    </a>
                     <div class="hidden sm:block h-16 w-px bg-slate-300"></div>
-                    <div class="flex flex-col items-center">
-                        <p class="text-6xl md:text-7xl font-black text-red-700 leading-none">
+                    <a href="tel:105" class="flex flex-col items-center group transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer">
+                        <p class="text-6xl md:text-7xl font-black text-primary leading-none group-hover:text-red-600 transition-colors">
                             105
                         </p>
-                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest">
+                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest group-hover:text-red-700 transition-colors">
                             Policía
                         </p>
-                    </div>
+                    </a>
                     <div class="hidden sm:block h-16 w-px bg-slate-300"></div>
-                    <div class="flex flex-col items-center">
-                        <p class="text-6xl md:text-7xl font-black text-red-700 leading-none">
+                    <a href="tel:106" class="flex flex-col items-center group transition-transform duration-300 hover:scale-110 active:scale-95 cursor-pointer">
+                        <p class="text-6xl md:text-7xl font-black text-primary leading-none group-hover:text-red-600 transition-colors">
                             106
                         </p>
-                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest">
+                        <p class="mt-2 text-sm font-bold text-slate-600 uppercase tracking-widest group-hover:text-red-700 transition-colors">
                             SAMU
                         </p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -382,7 +317,7 @@
 <!-- POSTULA AHORA -->
 <section class="py-20 px-6 bg-red-700 text-center">
     <div class="max-w-3xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        <h2 class="text-white text-3xl md:text-4xl font-bold mb-6">
             ¿Quieres formar parte de nuestra compañía?
         </h2>
         <p class="mb-8 text-white/90">

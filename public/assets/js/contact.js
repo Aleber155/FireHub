@@ -1,15 +1,40 @@
 /**
- * Lógica del Formulario de Contacto - SANEMOG
- * Maneja animaciones, validación visual, envío por correo (AJAX) y redirección a WhatsApp.
+ * Lógica del Formulario de Contacto - FireHub
+ * Maneja animaciones, validación visual y envío por correo (AJAX).
  */
 
-// 1. Animación principal (Se dispara apenas los recursos cargan)
-window.addEventListener('load', () => {
-    const titleElement = document.getElementById('title');
-    const cardElement = document.getElementById('card');
+// --- Funciones Globales ---
+// Debe ser global porque el <iframe> del mapa la llama directamente desde el HTML
+window.hideMapSkeleton = function () {
+    const skeleton = document.getElementById('map-skeleton');
+    if (skeleton) {
+        skeleton.style.opacity = '0';
+        skeleton.style.transition = 'opacity 0.4s ease';
+        setTimeout(() => skeleton.remove(), 400);
+    }
+};
 
-    if (titleElement) titleElement.classList.remove('opacity-0', 'translate-y-6');
-    if (cardElement) cardElement.classList.remove('opacity-0', 'translate-y-10');
+// 1. Animación principal (Se dispara apenas el HTML está listo, sin esperar al mapa)
+document.addEventListener('DOMContentLoaded', () => {
+    const formCard = document.getElementById('form-card');
+    const infoColumn = document.getElementById('info-column');
+    const emergencyBanner = document.getElementById('emergency-banner');
+
+    setTimeout(() => {
+        // Al quitar opacity-0 y agregar opacity-100 forzamos la aparición
+        if (formCard) {
+            formCard.classList.remove('opacity-0', 'translate-y-10');
+            formCard.classList.add('opacity-100', 'translate-y-0');
+        }
+        if (infoColumn) {
+            infoColumn.classList.remove('opacity-0', 'translate-y-10');
+            infoColumn.classList.add('opacity-100', 'translate-y-0');
+        }
+        if (emergencyBanner) {
+            emergencyBanner.classList.remove('opacity-0', 'translate-y-10');
+            emergencyBanner.classList.add('opacity-100', 'translate-y-0');
+        }
+    }, 100);
 });
 
 // 2. Lógica de interactividad y envío (Se dispara cuando el DOM está listo)
@@ -17,9 +42,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Referencias ---
     const form = document.getElementById('form');
     const inputs = document.querySelectorAll('.input-field');
-    const btnWhatsapp = document.getElementById('btnWhatsapp');
     const btnSubmit = document.getElementById('btnSubmit');
     const btnSubmitText = document.getElementById('btnSubmitText');
+    const privacyCheck = document.getElementById('privacy_check');
+
+    // --- Lógica del Checkbox de Privacidad ---
+    if (privacyCheck && btnSubmit) {
+        privacyCheck.addEventListener('change', function () {
+            // Si el check está marcado (true), el botón NO está deshabilitado (false)
+            btnSubmit.disabled = !this.checked;
+        });
+    }
 
     // --- Validación visual tipo SaaS ---
     inputs.forEach((input) => {
@@ -40,44 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Lógica para el botón de WhatsApp ---
-    if (btnWhatsapp) {
-        btnWhatsapp.addEventListener('click', function (e) {
-            e.preventDefault(); // Evita que la página salte arriba
-
-            // Capturamos los valores de los inputs (con validación de seguridad si no existen)
-            const nombre = document.getElementById('c_nombre')?.value || 'No especificado';
-            const email = document.getElementById('c_email')?.value || 'No especificado';
-            const celular = document.getElementById('c_celular')?.value || 'No especificado';
-            const empresa = document.getElementById('c_empresa')?.value || 'No especificada';
-            const ruc = document.getElementById('c_ruc')?.value || 'No especificado';
-            const mensaje = document.getElementById('c_mensaje')?.value || 'Sin mensaje adicional.';
-
-            // Construimos el texto del mensaje con un formato corporativo y formal
-            const textoWhatsapp = `Estimado equipo de SANEMOG,
-
-Me dirijo a ustedes para solicitar una consulta profesional. A continuación, remito mi información corporativa para que un asesor especializado se ponga en contacto conmigo:
-
-*Datos del Solicitante:*
-• *Empresa:* ${empresa}
-• *RUC / DNI:* ${ruc}
-• *Nombre:* ${nombre}
-• *Correo:* ${email}
-• *Teléfono:* ${celular}
-
-*Detalle del Requerimiento:*
-"${mensaje}"
-
-Quedo a la espera de su pronta comunicación.
-Saludos cordiales.`;
-
-            // Redirigimos a WhatsApp
-            const numeroDestino = '51944272013';
-            const urlWpp = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoWhatsapp)}`;
-            window.open(urlWpp, '_blank');
-        });
-    }
-
     // --- Lógica para el envío de Correo (AJAX) ---
     if (form) {
         form.addEventListener('submit', async function (e) {
@@ -87,6 +82,9 @@ Saludos cordiales.`;
             const textoOriginal = btnSubmitText.innerText;
             btnSubmitText.innerText = 'Enviando...';
             btnSubmit.classList.add('opacity-70', 'pointer-events-none');
+
+            // Refuerzo de seguridad: evitamos doble clic
+            btnSubmit.disabled = true;
 
             const formData = new FormData(this);
 
@@ -99,20 +97,26 @@ Saludos cordiales.`;
 
                 if (response.ok) {
                     alert('¡Mensaje enviado correctamente! Nos pondremos en contacto pronto.');
-                    this.reset(); // Limpia los campos del formulario
+                    this.reset(); // Limpia los campos y desmarca el checkbox visualmente
 
                     // Retiramos los bordes verdes de validación
                     inputs.forEach((input) =>
                         input.classList.remove('border-green-500', 'focus:ring-green-500'),
                     );
+
+                    // SOLUCIÓN AL BUG: Mantenemos el botón apagado porque this.reset() limpió el check
+                    btnSubmit.disabled = true;
                 } else {
-                    alert('Hubo un error al enviar el mensaje. Intente de nuevo o use WhatsApp.');
+                    alert('Hubo un error al enviar el mensaje. Por favor, intente de nuevo.');
+                    // Si hubo error y el check estaba marcado, le devolvemos la vida al botón
+                    if (privacyCheck.checked) btnSubmit.disabled = false;
                 }
             } catch (error) {
                 console.error('Error en petición Fetch:', error);
-                alert('Error de conexión. Por favor intente vía WhatsApp.');
+                alert('Error de conexión. Por favor, revise su internet e intente de nuevo.');
+                if (privacyCheck.checked) btnSubmit.disabled = false;
             } finally {
-                // Restauramos el botón a la normalidad
+                // Restauramos el botón a la normalidad (textos y clases)
                 btnSubmitText.innerText = textoOriginal;
                 btnSubmit.classList.remove('opacity-70', 'pointer-events-none');
             }

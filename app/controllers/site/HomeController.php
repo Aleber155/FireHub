@@ -1,6 +1,6 @@
 <?php
 
-namespace Aleber\FireHub\Controllers;
+namespace Aleber\FireHub\Controllers\Site;
 
 use Aleber\FireHub\Core\Controller;
 

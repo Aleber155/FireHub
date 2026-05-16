@@ -1,13 +1,14 @@
 function createFireParticles(sectionId) {
-
     const section = document.getElementById(sectionId);
     if (!section) return;
 
-    const canvas = section.querySelector("canvas");
+    const canvas = section.querySelector('canvas');
     if (!canvas) return;
 
-    const ctx = canvas.getContext("2d");
-    ctx.globalCompositeOperation = "lighter";
+    const ctx = canvas.getContext('2d');
+
+    // 👇 SOLUCIÓN 1: Cambiar 'lighter' por 'source-over' para fondos claros
+    ctx.globalCompositeOperation = 'source-over';
 
     let particles = [];
 
@@ -18,28 +19,32 @@ function createFireParticles(sectionId) {
         canvas.width = Math.floor(rect.width * dpr);
         canvas.height = Math.floor(rect.height * dpr);
 
-        canvas.style.width = rect.width + "px";
-        canvas.style.height = rect.height + "px";
+        canvas.style.width = rect.width + 'px';
+        canvas.style.height = rect.height + 'px';
 
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
     }
 
     class FireParticle {
-        constructor() { this.reset(true); }
+        constructor() {
+            this.reset(true);
+        }
 
         reset(initial = false) {
             this.x = Math.random() * section.offsetWidth;
-            this.y = initial
-                ? Math.random() * section.offsetHeight
-                : section.offsetHeight + 20;
+            this.y = initial ? Math.random() * section.offsetHeight : section.offsetHeight + 20;
 
             this.size = Math.random() * 3 + 2;
             this.speedY = Math.random() * 1.2 + 0.8;
             this.speedX = (Math.random() - 0.5) * 0.4;
-            this.opacity = Math.random() * 0.6 + 0.4;
 
-            const colors = ["255,90,0","255,120,0","255,70,0","255,180,60"];
+            // Incrementamos un poco la opacidad base para fondos claros
+            this.opacity = Math.random() * 0.7 + 0.5;
+
+            // 👇 SOLUCIÓN 2: Tonos rojos/naranjas ligeramente más intensos
+            // para garantizar un excelente contraste contra el blanco
+            const colors = ['220,38,38', '239,68,68', '255,90,0', '185,28,28'];
             this.color = colors[Math.floor(Math.random() * colors.length)];
         }
 
@@ -52,10 +57,7 @@ function createFireParticles(sectionId) {
         }
 
         draw() {
-            const gradient = ctx.createRadialGradient(
-                this.x, this.y, 0,
-                this.x, this.y, this.size
-            );
+            const gradient = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.size);
 
             gradient.addColorStop(0, `rgba(${this.color},${this.opacity})`);
             gradient.addColorStop(1, `rgba(${this.color},0)`);
@@ -77,11 +79,14 @@ function createFireParticles(sectionId) {
 
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
+        particles.forEach((p) => {
+            p.update();
+            p.draw();
+        });
         requestAnimationFrame(animate);
     }
 
-    window.addEventListener("resize", () => {
+    window.addEventListener('resize', () => {
         resizeCanvas();
         initParticles();
     });
