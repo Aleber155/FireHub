@@ -24,8 +24,8 @@
         </div>
     </div>
 
-    <div class="px-6 md:px-12 lg:px-24 flex-1 pb-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+    <div class="px-6 md:px-12 lg:px-24 pb-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
 
             <div class="group cursor-pointer flex flex-col bg-white/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-white/10 h-full">
                 <div class="relative h-52 overflow-hidden">
@@ -115,6 +115,54 @@
                     </h3>
                     <p class="text-slate-600 text-sm leading-relaxed mb-6 text-pretty">
                         Identificación, contención de sustancias químicas y mitigación de riesgos ambientales y de salud.
+                    </p>
+                    <div class="mt-auto inline-flex items-center text-red-600 font-bold text-sm group/btn">
+                        Saber más 
+                        <span class="material-symbols-outlined ml-1 text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer flex flex-col bg-white/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-white/10 h-full">
+                <div class="relative h-52 overflow-hidden">
+                    <div class="absolute inset-0 bg-red-600/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('<?= BASE_URL ?>public/assets/img/SERVICIO-05.png');">
+                    </div>
+                    <div class="absolute top-4 left-4 z-20 bg-red-600 text-white p-2.5 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined block text-2xl">support</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1 text-left">
+                    <h3 class="text-slate-900 text-xl font-extrabold mb-3 text-balance">
+                        Búsqueda y Rescate
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6 text-pretty">
+                        Maniobras de rescate en estructuras colapsadas, espacios confinados y zonas de difícil acceso para salvaguardar vidas.
+                    </p>
+                    <div class="mt-auto inline-flex items-center text-red-600 font-bold text-sm group/btn">
+                        Saber más 
+                        <span class="material-symbols-outlined ml-1 text-sm transition-transform group-hover/btn:translate-x-1">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group cursor-pointer flex flex-col bg-white/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-white/10 h-full">
+                <div class="relative h-52 overflow-hidden">
+                    <div class="absolute inset-0 bg-red-600/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
+                    <div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('<?= BASE_URL ?>public/assets/img/SERVICIO-06.png');">
+                    </div>
+                    <div class="absolute top-4 left-4 z-20 bg-red-600 text-white p-2.5 rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                        <span class="material-symbols-outlined block text-2xl">pets</span>
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-1 text-left">
+                    <h3 class="text-slate-900 text-xl font-extrabold mb-3 text-balance">
+                        Rescate Animal
+                    </h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6 text-pretty">
+                        Asistencia especializada para el rescate y recuperación de mascotas y fauna silvestre en situaciones de peligro.
                     </p>
                     <div class="mt-auto inline-flex items-center text-red-600 font-bold text-sm group/btn">
                         Saber más 

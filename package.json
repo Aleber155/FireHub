@@ -24,6 +24,7 @@
         "tom-select": "^2.6.0"
     },
     "devDependencies": {
+        "@prettier/plugin-php": "^0.25.0",
         "@tailwindcss/vite": "^4.3.0",
         "prettier": "^3.8.1",
         "prettier-plugin-tailwindcss": "^0.7.2",

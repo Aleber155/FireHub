@@ -1,8 +1,8 @@
 <?php
 
-namespace Aleber\Firehub\Core;
+namespace Aleber\FireHub\Core;
 
-use Aleber\Firehub\Config\Database;
+use Aleber\FireHub\Config\Database;
 use PDO;
 
 class Model {

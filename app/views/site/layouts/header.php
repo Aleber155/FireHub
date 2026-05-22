@@ -81,7 +81,7 @@
                 </div>
 
                 <div class="flex items-center space-x-1 shrink-0">
-                    <a href="<?= BASE_URL ?>?url=history" class="group relative inline-flex items-center justify-center overflow-hidden bg-primary hover:bg-primary/90 text-white text-sm font-medium px-8 lg:px-8 py-3 lg:py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 shrink-0">
+                    <a href="<?= BASE_URL ?>?url=auth/login" class="group relative inline-flex items-center justify-center overflow-hidden bg-primary hover:bg-primary/90 text-white text-sm font-medium px-8 lg:px-8 py-3 lg:py-3 rounded-full shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 shrink-0">
                         <span class="transition-all duration-400 group-hover:-translate-x-3">
                             Portal
                         </span>

@@ -14,7 +14,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
             <div class="text-center lg:text-left">
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 leading-tight text-white">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black mb-6 leading-tight text-white">
                     Únete a nuestras filas.
                     <br class="hidden sm:block" />
                     Sirve a tu comunidad.
